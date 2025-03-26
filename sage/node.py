@@ -4,9 +4,11 @@ from typing import Self
 
 @dataclass
 class Root:
-    """Define attributes for each node"""
+    """Root node; no parent"""
 
+    name: str
     score: float
+    summary: str
 
 
 @dataclass
@@ -14,9 +16,9 @@ class Node(Root):
     """Define attributes for each node"""
 
     parent: Self | Root
-    summary: str
-    importance: list[tuple] = field(
-        default_factory=lambda: []
-    )  # (note, score) e.g. ("A, B, and C", +2)
+
+    # (note, score) e.g. ("A, B, and C", +2)
+    ideal: list[tuple] = field(default_factory=lambda: [])
+    importance: list[tuple] = field(default_factory=lambda: [])
     unimportance: list[tuple] = field(default_factory=lambda: [])
     learn_more: list[str] = field(default_factory=lambda: [])

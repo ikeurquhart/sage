@@ -8,16 +8,17 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pandas (>=2.2.3,<3.0.0)"
+    "networkx>=3.4.2",
+    "numpy>=2.2.4",
+    "plotly>=6.0.1",
 ]
 
-[tool.poetry]
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.11.2",
+]
 
-[tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
-flake8 = "^7.1.2"
-isort = "^6.0.1"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.ruff]
+line-length = 120
